@@ -51,7 +51,6 @@ while True:
         Consulta= str(input("Digite o nome do contato: "))
         for x in Contatos:                                  # Varredura de dados contados na lista
             if Consulta == x:                               # Condição de dado procurado e encontrado                        
-                x2= str(Consulta)
                 y= Contatos.index(x)                       # Ligação entre a lista de contato e de telefones          
                 print (x,Telefones[y])                      # Apresentação do Contato e seu respectivo telefone
                 
@@ -64,11 +63,8 @@ while True:
                     Contatos.remove(Consulta)                                           # Remove o nome para alteração
                     del Telefones[y]                                                    # Remove o nome para alteração
                     Contatos.append(str(input("Digite o nome para alterar: ")))         # Adiciona um nome para alterar
-                    Telefones.append(int(input("Digite o telefone para alterar: ")))    # Adiciona um telefone para alterar
-                    x= Consulta 
-                    x= x2       
+                    Telefones.append(int(input("Digite o telefone para alterar: ")))    # Adiciona um telefone para alterar      
                 
-
                 elif (opcao2 == 2):             # Opção Remover contato
                     Contatos.remove(Consulta)   #
                     del Telefones[y]            # Apenas remove sem alteração
