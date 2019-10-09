@@ -6,7 +6,7 @@
 #           3- Mostrar todos contatos
 #           4- Sair
 #-------------------------------------------------------------------------
-#   2) Inclua o cadastro do telefone no mesmo array.
+#   2) Inclua o cadastro do telefone em um mesmo array.
 #-------------------------------------------------------------------------
 #   3) Na opção Consulta ofereça as opçoes alterar e excluir. Use a função
 #      Remove para excluir |("lista.remove ('item da lista')|
@@ -15,12 +15,10 @@
 #-------------------------------------------------------------------------
 
 Contatos= []
-contador= int(0)
-y= int(0)
 x= str('')
 while True:
     
-    print (37* "__")     # Quebra de linha para melhor visualização :)
+    print (18* "__")     # Quebra de linha para melhor visualização :)
     print ()             #
     
     print ("1) Cadastrar.")
@@ -35,8 +33,8 @@ while True:
 #--------------------------------------------------------------------------
 
     if opcao == 1:
-        nome =str(input("Digite o nome do contato: "))
-        tel = int(input("Digite o telefone do contato"))
+        nome =str(input("Nome: ")).lower()
+        tel = str(input("Tel: "))
         
         linha= [nome,tel]
         Contatos.append(linha)
@@ -44,15 +42,16 @@ while True:
 #--------------------------------------------------------------------------
 
     elif opcao == 2:
-        Consulta= str(input("Digite o nome do contato: "))
+        Consulta= str(input("Digite o nome do contato: ")).lower()
         for i in range(len(Contatos)):    
             if(i >= len(Contatos)):
-                break
+                break		#evitando erro de out of range in "i".
             
-            for x in (Contatos[i]):
-                #print (x)
-                if x == Consulta:
-                    print (Contatos[i])
+            for z in (Contatos[i]):
+                #print (z)  <-- teste de comportamento
+                if z == Consulta:
+                    print (f'Nome: {Contatos[i][0]}')
+                    print (f'Tel: {Contatos[i][1]}')
                     print ()
                         
                     print ("1) Alterar dados do Contato.")
@@ -61,29 +60,32 @@ while True:
                                 
                     opcao2= int(input("Digite uma opção para continuar: "))# Selecionar uma opçao acima desta instrução
 
-                    while opcao2!=1 and opcao2!=2 and opcao2!=3:  # Opção inexistente das que estavam disponíveis (menu de alteração)
+                    while opcao2!=1 and opcao2!=2 and opcao2!=3:  	# Opção inexistente das que estavam disponíveis (menu de alteração)
                         print("Opção inexistente!")          
                         opcao2= int(input("Digite a opção novamente: "))
 
                     if (opcao2 == 1):       # Opção Alterar dados do Contato
-                        Contatos[i][0]= str(input("Digite o nome do contato: "))
-                        Contatos[i][1]= int(input("Digite o telefone do contato"))
+                        Contatos[i][0]= str(input("Nome: ")).lower()
+                        Contatos[i][1]= str(input("Tel: "))
                         
                     elif (opcao2 == 2):     # Opção Remover contato
                         Contatos.pop(i)
                         break
 
-                    elif (opcao2 == 3):
-                        print ("Voltando ao inicio...")     # Volta para a sessão de seleção de tarefa
+                    elif (opcao2 == 3):		# Volta para o menu de seleção
+                        print ("Voltando ao inicio...")  
                  
 #--------------------------------------------------------------------------
                     
-    elif opcao == 3:                # Mostrar todos os Contatos.
-        print ("__"* 37)
-        print ("Contatos / Telefones")
-        for x in Contatos:          # Varredura na lista contatos.
-            y= Contatos.index(x)
-            print (*Contatos[y])
+    elif opcao == 3:                            # Mostrar todos os Contatos.
+        print ("__"* 18,"\n")
+        print ("AGENDA")
+        print ("----")
+        for x in range(len(Contatos)):          # Varredura na lista contatos.
+            print (f'Contato {x+1}:')
+            print (f'Nome: {Contatos[x][0]}')
+            print (f'Tel: {Contatos[x][1]}')
+            print ("----")            
 
 #--------------------------------------------------------------------------
 
