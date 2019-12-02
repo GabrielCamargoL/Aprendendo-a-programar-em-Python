@@ -3,7 +3,7 @@ print ("*********************************")
 print ("***Bem vindo ao jogo da Forca!***")
 print ("*********************************")
 
-palavra_secreta= "banana"
+palavras_secretas= ["banana", "paralelepipedo", "python", "programacao"]
 letras_acertadas= ["_", "_", "_", "_", "_", "_"]
 
 
